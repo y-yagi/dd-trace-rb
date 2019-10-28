@@ -5,6 +5,11 @@ require 'rspec/collection_matchers'
 require 'webmock/rspec'
 require 'climate_control'
 
+require 'simplecov'
+require 'codecov'
+SimpleCov.start
+SimpleCov.formatter = SimpleCov::Formatter::Codecov
+
 require 'ddtrace/encoding'
 require 'ddtrace/tracer'
 require 'ddtrace/span'
