@@ -5,12 +5,14 @@ require 'rspec/collection_matchers'
 require 'webmock/rspec'
 require 'climate_control'
 
-if ENV['CI'] == 'true'
-  require 'simplecov'
-  SimpleCov.start
-  require 'codecov'
-  SimpleCov.formatter = SimpleCov::Formatter::Codecov
+# if ENV['CI'] == 'true'
+require 'simplecov'
+SimpleCov.start do
+  coverage_dir ENV['CIRCLE_ARTIFACTS']
 end
+# require 'codecov'
+# SimpleCov.formatter = SimpleCov::Formatter::Codecov
+# end
 
 require 'ddtrace/encoding'
 require 'ddtrace/tracer'
